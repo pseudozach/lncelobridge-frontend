@@ -45,7 +45,7 @@ export const connectWallet = async () => {
           package: WalletConnectProvider, // setup wallet connect for mobile wallet support
           options: {
             rpc: {
-              30: 'https://public-node.rsk.co', // use RSK public nodes to connect
+              44787: 'https://alfajores-forno.celo-testnet.org', // use RSK public nodes to connect
               // 33: 'https://4444-kumquat-horse-natda5vs.ws-us18.gitpod.io', // gitpod node for testing
             },
           },
