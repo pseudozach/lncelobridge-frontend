@@ -36,7 +36,7 @@ class SwapTabWrapper extends React.Component {
       disabled: false,
       error: false,
       inputError: false,
-      base: 'RBTC',
+      base: 'CELO',
       quote: 'BTC ⚡',
       minAmount: new BigNumber('0'),
       maxAmount: new BigNumber('0'),
@@ -225,7 +225,7 @@ class SwapTabWrapper extends React.Component {
   componentDidMount = () => {
     const symbol = this.getSymbol();
     const limits = this.props.limits[symbol];
-    console.log("symbol, limits ", symbol, limits);
+    // console.log("symbol, limits ", symbol, limits);
     this.setState(
       {
         minAmount: new BigNumber(limits.minimal),
