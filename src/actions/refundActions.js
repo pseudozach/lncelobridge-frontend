@@ -115,7 +115,7 @@ export const startRefund = (
 ) => {
   console.log(`startRefund: `, refundFile, transactionHash, destinationAddress);
 
-  if (refundFile.currency == 'RBTC') {
+  if (refundFile.currency == 'CELO') {
     refundFunds(refundFile.swapInfo, refundFile.swapResponse);
   } else {
     refundTokens(refundFile.swapInfo, refundFile.swapResponse);
