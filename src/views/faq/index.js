@@ -62,7 +62,7 @@ class Faq extends React.Component {
           </View>
           <View className={classes.questionTab}>
             <Question
-              title={style => <h1 className={style}>What is Marduk.exchange?</h1>}
+              title={style => <h1 className={style}>What is LN-CELO Bridge?</h1>}
               content={style => (
                 <p className={style}>
                   Marduk.exchange is an instant and non-custodial crypto currency exchange
@@ -176,10 +176,10 @@ class Faq extends React.Component {
               )}
               content={style => (
                 <p className={style}>
-                  Marduk.exchange is a fork of <Link to={'https://boltz.exchange'} text={'Boltz'} />. 
+                  LN-CELO Bridge is a fork of <Link to={'https://boltz.exchange'} text={'Boltz'} />. 
                   We are a team of independent developers working to bridge 
-                  the gap between Lightning and Sovryn on RSK.
-                  Our work is supported by a grant from Sovryn.
+                  the gap between Lightning and CELO.
+                  Our work is supported by a grant from CELO Foundation.
                 </p>
               )}
             />
