@@ -15,7 +15,7 @@ import { bitcoinNetwork, litecoinNetwork } from '../../constants';
 import { generateKeys, randomBytes, navigation } from '../../actions';
 import { getHexString } from '../../utils';
 
-const boltz_logo = require('../../asset/icons/boltz_logo.png');
+const boltz_logo = require('../../asset/icons/loading.gif');
 
 const LandingPageDeskTopContent = ({
   classes,
@@ -59,7 +59,7 @@ const LandingPageDeskTopContent = ({
         </View> */}
         {loading ? (
           <View className={classes.loading}>
-            <img alt="logo" src={boltz_logo} className={classes.loadingLogo} />
+            <img alt="logo" src={boltz_logo} className={classes.loadingLogo} style={{height: 100, width: 100,}}/>
             <p className={classes.loadingText}>Loading...</p>
           </View>
         ) : (
