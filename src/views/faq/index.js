@@ -176,10 +176,10 @@ class Faq extends React.Component {
               )}
               content={style => (
                 <p className={style}>
-                  LN-CELO Bridge is a fork of <Link to={'https://boltz.exchange'} text={'Boltz'} />. 
                   We are a team of independent developers working to bridge 
-                  the gap between Lightning and CELO.
-                  Our work is supported by a grant from CELO Foundation.
+                  the gap between Bitcoin and CELO.
+                  <br/>Our work is supported by a grant from CELO Foundation.
+                  <br/>LN-CELO Bridge is a fork of <Link to={'https://boltz.exchange'} text={'Boltz'} />. 
                 </p>
               )}
             />
