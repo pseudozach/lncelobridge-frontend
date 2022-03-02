@@ -72,7 +72,7 @@ class Faq extends React.Component {
                   identify our users. <br /> <br />
                   Please note that this app is currently in its beta stage and under heavy development.
                   If you experience any issues or
-                  have some feedback feel free to find us on Sovryn Discord channel.{' '}
+                  have some feedback feel free to find us on CELO Discord channel.{' '}
                   {/* <Link to={twitterLink} text={'contact us'} />. */}
                 </p>
               )}
