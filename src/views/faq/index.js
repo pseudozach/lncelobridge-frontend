@@ -62,10 +62,10 @@ class Faq extends React.Component {
           </View>
           <View className={classes.questionTab}>
             <Question
-              title={style => <h1 className={style}>What is LN-CELO Bridge?</h1>}
+              title={style => <h1 className={style}>What is Bosphorus.Exchange?</h1>}
               content={style => (
                 <p className={style}>
-                  LN-CELO Bridge is an instant and non-custodial crypto currency exchange
+                  Bosphorus.Exchange is an instant and non-custodial crypto currency exchange
                   that focuses on the adoption of second layer scaling
                   technologies like the Lightning network and the privacy of its
                   users. We neither use any trackers nor log any data that could
@@ -108,7 +108,7 @@ class Faq extends React.Component {
                   source code and verify that the claims above are valid because
                   everything is open source and can be found on{' '}
                   <Link
-                    to={'https://github.com/pseudozach/lnsovbridge'}
+                    to={'https://github.com/pseudozach/lncelobridge'}
                     text={'our GitHub'}
                   />
                   . Also we will soon add a version of our frontend that you can

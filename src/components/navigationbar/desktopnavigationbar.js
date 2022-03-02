@@ -18,7 +18,7 @@ const DeskTopNavigationBar = ({ classes }) => (
         className={classes.img}
         alt="logo"
       />
-      <span className={classes.logoText}>LN-CELO Bridge</span>
+      <span className={classes.logoText}>Bosphorus.Exchange</span>
       <span className={classes.subLogoText}>{network} beta</span>
     </View>
     <View className={classes.buttons}>
@@ -59,7 +59,7 @@ const DeskTopNavigationBar = ({ classes }) => (
         className={classes.responsiveBtn}
         external
         text="Github"
-        to="https://github.com/pseudozach/lnsovbridge"
+        to="https://github.com/pseudozach/lncelobridge"
       />
     </View>
   </View>
