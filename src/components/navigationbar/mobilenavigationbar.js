@@ -72,18 +72,18 @@ class MobileNavigationBar extends React.Component {
               text="Twitter"
               to="https://twitter.com/boltzhq"
             /> */}
-            <Button
+            {/* <Button
               className={classes.btn}
               external
               text="API"
               to="https://docs.boltz.exchange/en/latest/"
-            />
-            <Button
+            /> */}
+            {/* <Button
               className={classes.btn}
               external
               text="Github"
               to="https://github.com/pseudozach/lncelobridge"
-            />
+            /> */}
           </View>
         ) : (
           undefined
