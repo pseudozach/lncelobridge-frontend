@@ -40,7 +40,7 @@ class SwapTabWrapper extends React.Component {
       quote: 'BTC ⚡',
       minAmount: new BigNumber('0'),
       maxAmount: new BigNumber('0'),
-      baseAmount: new BigNumber('0.05'),
+      baseAmount: new BigNumber('4'),
       quoteAmount: new BigNumber('0'),
       feeAmount: new BigNumber('0'),
       errorMessage: '',
