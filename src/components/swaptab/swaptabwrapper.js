@@ -345,7 +345,7 @@ class SwapTabWrapper extends React.Component {
       minerFee = minerFee.times(new BigNumber(1).dividedBy(rate));
     }
 
-    if (isNaN(percentageFee.toNumber())) {
+    if (isNaN(percentageFee.toNumber()) || percentageFee.toNumber() < 1) {
       return new BigNumber(0);
     }
 
@@ -394,25 +394,29 @@ class SwapTabWrapper extends React.Component {
   };
 
   updateQuoteAmount = baseAmount => {
+    console.log('updateQuoteAmount ', baseAmount);
     if (!this.state.rate) return;
 
     const amount = new BigNumber(baseAmount.toString());
     const rate = new BigNumber(this.state.rate.rate);
+    // const inverserate = new BigNumber(1/this.state.rate.rate);
+    // inverserate
 
     let fee = this.calculateFee(amount, rate);
-
+    console.log('swaptabwrapper.404: ', amount, rate, fee);
     const quote = amount
       .times(rate)
       .minus(fee.times(rate))
       .toFixed(8);
 
     let newQuote = new BigNumber(quote);
-
+    console.log('swaptabwrapper.411: ', quote);
     if (newQuote.isLessThanOrEqualTo(0)) {
       newQuote = new BigNumber('0');
     }
 
     const inputError = !this.checkBaseAmount(amount);
+    console.log('swaptabwrapper.417 calculated amount: ', inputError);
     this.setState({
       quoteAmount: newQuote,
       baseAmount: amount,
