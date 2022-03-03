@@ -41,7 +41,7 @@ const BackGround = ({ classes, showFooter, children }) => (
 );
 
 BackGround.defaultProps = {
-  showFooter: true,
+  showFooter: false,
 };
 
 BackGround.propTypes = {
