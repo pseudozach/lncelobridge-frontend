@@ -45,7 +45,8 @@ export const connectWallet = async () => {
           package: WalletConnectProvider, // setup wallet connect for mobile wallet support
           options: {
             rpc: {
-              44787: 'https://alfajores-forno.celo-testnet.org', // use RSK public nodes to connect
+              42220: 'https://forno.celo.org',
+              // 44787: 'https://alfajores-forno.celo-testnet.org', // use CELO public nodes to connect
               // 33: 'https://4444-kumquat-horse-natda5vs.ws-us18.gitpod.io', // gitpod node for testing
             },
           },
@@ -65,7 +66,7 @@ export const connectWallet = async () => {
         //   },
         // },
       },
-      // supportedChains: [33], // enable rsk regtest
+      // supportedChains: [33], // enable regtest
     });
 
     // let clearcache = await web3Modal.clearCachedProvider();
@@ -1107,7 +1108,9 @@ export const lockTokens = async (swapInfo, swapResponse) => {
   );
   // , chainId: 33
   let lastBlockGasLimit = web3.eth.getBlock('latest').gasLimit || 0;
-  let gasLimit = Math.max(lastBlockGasLimit, 100000);
+  let gasLimit = Math.max(lastBlockGasLimit, 1000000);
+  console.log('lastBlockGasLimit, gasLimit', lastBlockGasLimit, gasLimit);
+  // return;
 
   erc20tokencontract.methods.approve(swapResponse.address, amount).send(
     {
