@@ -161,7 +161,7 @@ class Faq extends React.Component {
               )}
               content={style => (
                 <p className={style}>
-                  Our fees consist of the <i>miner fee</i> that is needed for
+                  Our fees consist of the <i>network fee</i> that is needed for
                   the onchain parts of the Submarine Swaps and an additional fee
                   which is a percentage of the traded amount and goes to our
                   pocket for providing a <i>(hopefully)</i> useful service to
