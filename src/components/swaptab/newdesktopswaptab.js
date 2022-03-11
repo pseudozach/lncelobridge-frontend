@@ -109,7 +109,8 @@ const DeskTopSwapTabContent = ({
       /> */}
       <CardContent>
         <Paper 
-          elevation={1} 
+          // elevation={1} 
+          variant="outlined"
           // className={classes.darkpaper}
           sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, alignItems: 'center',}}
         >
@@ -161,7 +162,8 @@ const DeskTopSwapTabContent = ({
 
 
         <Paper 
-          elevation={1} 
+          // elevation={1} 
+          variant="outlined"
           // className={classes.darkpaper}
           sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, alignItems: 'center',}}
         >
@@ -377,7 +379,7 @@ const styles = theme => ({
     position: 'relative !important',
     left: '50% !important',
     // bottom: '50% !important',
-    bottom: '30px !important',
+    bottom: '27.5px !important',
     backgroundColor: '#45665b !important',
     color: 'white !important',
     '&:hover': {
