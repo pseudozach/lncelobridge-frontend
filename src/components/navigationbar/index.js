@@ -5,10 +5,11 @@ const DeskTopNavigationBar = lazy(() => import('./newdesktopnavigationbar'));
 const MobileNavigationBar = lazy(() => import('./mobilenavigationbar'));
 
 const NavigationBar = props => (
-  <PlatformSelector
-    mobile={<MobileNavigationBar {...props} />}
-    desktop={<DeskTopNavigationBar {...props} />}
-  />
+  <DeskTopNavigationBar {...props} />
+  // <PlatformSelector
+  //   mobile={<MobileNavigationBar {...props} />}
+  //   desktop={<DeskTopNavigationBar {...props} />}
+  // />
 );
 
 export default NavigationBar;
