@@ -2974,3 +2974,7 @@ export const notificationData = (info, alertType) => {
 export const formatAmount = number => {
   return number.toFixed(8).replace(/\.?0+$/, '');
 };
+
+// export const getUserAddress = string => {
+//   return web3.eth.accounts.currentProvider.selectedAddress;
+// }

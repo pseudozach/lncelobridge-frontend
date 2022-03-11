@@ -26,6 +26,10 @@
     "url": "git+https://github.com/BoltzExchange/boltz-frontend.git"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.0",
+    "@mui/material": "^5.5.0",
     "@rsksmart/rlogin-dcent-provider": "^1.0.1",
     "@rsksmart/rlogin-ledger-provider": "^1.0.1",
     "@rsksmart/rlogin-trezor-provider": "^1.0.1",
@@ -42,7 +46,7 @@
     "prop-types": "^15.7.2",
     "qrcode-parser": "^1.2.0",
     "qrious": "^4.0.2",
-    "react": "^16.9.0",
+    "react": "^17.0.2",
     "react-confetti": "^4.0.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-device-detect": "^1.9.10",
