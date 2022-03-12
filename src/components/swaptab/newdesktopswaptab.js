@@ -45,16 +45,14 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import {
+  // getCurrencyName,
+  // getSampleAddress,
+  // getNetwork,
+  connectWallet,
+} from '../../utils';
+import Logout from '@mui/icons-material/Logout';
+import { Tooltip } from '@mui/material';
 
 const DeskTopSwapTabContent = ({
   classes,
@@ -79,14 +77,14 @@ const DeskTopSwapTabContent = ({
   baseStep,
   quoteStep,
   feePercentage,
-  connectWallet,
+  // connectWallet,
   expanded,
   handleExpandClick,
 }) => (
   
 
-    <Card 
       // sx={{ backgroundColor: '#303b47', color: 'white', }} 
+    <Card 
       className={classes.wrapper}>
       <CardHeader
         sx={{textAlign: 'center'}}
@@ -241,16 +239,35 @@ const DeskTopSwapTabContent = ({
         </Typography> */}
       </CardContent>
       <CardActions
-        sx={{flexDirection: 'column', }}
+        sx={{flexDirection: 'column', borderTop: '1px solid #45665b', }}
       >
         <Box
-          sx={{display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center', }}
+          sx={{display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', }}
         >
+          <Button
+            variant="outlined"
+            // className={classes.contractButton}
+            text={'Connect Wallet'}
+            sx={{ margin: 2, }}
+            onClick={async () => {
+              if(localStorage.getItem('ua')) {
+                localStorage.clear();
+                window.location.reload();
+              }
+              let w3 = await connectWallet();
+              console.log('onpress account ', w3);
+              // this.onChange(w3.account, false);
+              // document.getElementById('addressTextfield').value = w3.account;
+              localStorage.setItem('ua', w3.account);
+              window.location.reload();
+            }}
+          >{localStorage.getItem('ua') ? <Tooltip title="Disconnect Wallet"><Logout/></Tooltip> : 'Connect Wallet'}
+          </Button>
           {(error || inputError) && <Alert severity="error" sx={{flex: 1, mx: 1,}} >{errorMessage}</Alert>}
           <Button variant="contained" size="large" endIcon={<NavigateNextIcon />}
             sx={{ margin: 2, }}
             className={classes.greenman}
-            disabled={(error || inputError)}
+            disabled={(error || inputError || !localStorage.getItem('ua'))}
             onClick={()=>shouldSubmit()}
           >
             Start
@@ -370,7 +387,10 @@ const styles = theme => ({
   wrapper: {
     margin: '15px',
     // height: '600px',
-    width: '600px',
+    minHeight: '500px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '800px',
     flexDirection: 'column',
     backgroundColor: '#fff',
     '@media (min-width: 1500px)': {
@@ -486,7 +506,7 @@ DeskTopSwapTabContent.propTypes = {
   shouldSubmit: PropTypes.func,
   baseStep: PropTypes.string,
   quoteStep: PropTypes.string,
-  connectWallet: PropTypes.func,
+  // connectWallet: PropTypes.func,
   expanded: PropTypes.bool,
   handleExpandClick: PropTypes.func,
 };
