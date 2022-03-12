@@ -17,7 +17,7 @@ const styles = theme => ({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.red,
+    backgroundColor: '#FF0000',
   },
   controls: { flex: 2, justifyContent: 'center', alignItems: 'center' },
   text: {
