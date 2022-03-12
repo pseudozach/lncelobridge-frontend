@@ -375,7 +375,9 @@ class SwapTabWrapper extends React.Component {
   };
 
   updateBaseAmount = quoteAmount => {
-    const amount = new BigNumber(quoteAmount);
+    if (!quoteAmount.target || !quoteAmount.target.value) return;
+    console.log('quoteAmount: ', quoteAmount, quoteAmount.target.value.toString());
+    const amount = new BigNumber(quoteAmount.target.value.toString());
     const rate = new BigNumber(this.state.rate.rate);
 
     const newBase = amount.dividedBy(rate);
@@ -383,6 +385,7 @@ class SwapTabWrapper extends React.Component {
 
     const newBaseWithFee = fee.plus(newBase);
     const inputError = !this.checkBaseAmount(newBaseWithFee);
+    console.log('inputError: ', inputError, );
 
     this.setState({
       quoteAmount: amount,
@@ -394,10 +397,12 @@ class SwapTabWrapper extends React.Component {
   };
 
   updateQuoteAmount = baseAmount => {
-    console.log('updateQuoteAmount ', baseAmount);
+    if (!baseAmount.target || !baseAmount.target.value) return;
+    console.log('updateQuoteAmount ', baseAmount, baseAmount.target.value.toString(), this.state.rate);
     if (!this.state.rate) return;
 
-    const amount = new BigNumber(baseAmount.toString());
+    // const amount = new BigNumber(baseAmount.toString());
+    const amount = new BigNumber(baseAmount.target.value.toString());
     const rate = new BigNumber(this.state.rate.rate);
     // const inverserate = new BigNumber(1/this.state.rate.rate);
     // inverserate
@@ -416,7 +421,7 @@ class SwapTabWrapper extends React.Component {
     }
 
     const inputError = !this.checkBaseAmount(amount);
-    console.log('swaptabwrapper.417 calculated amount: ', inputError);
+    console.log('swaptabwrapper.417 calculated amount: inputError', inputError);
     this.setState({
       quoteAmount: newQuote,
       baseAmount: amount,
