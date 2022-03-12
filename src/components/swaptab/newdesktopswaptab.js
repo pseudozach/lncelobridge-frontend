@@ -120,7 +120,7 @@ const DeskTopSwapTabContent = ({
             <Select
               value={base}
               defaultValue={base}
-              onChange={e => updatePair(quote, e)}
+              onChange={e => updatePair(quote, e.target.value)}
               // displayEmpty
               inputProps={{ 'aria-label': 'Without label' }}
               sx={{ m: 1, minWidth: 120 }}
@@ -175,7 +175,7 @@ const DeskTopSwapTabContent = ({
             <Select
               value={quote}
               defaultValue={quote}
-              onChange={e => updatePair(e, base)}
+              onChange={e => updatePair(e.target.value, base)}
               // displayEmpty
               inputProps={{ 'aria-label': 'Without label' }}
               className={classes.inputMobile}        
