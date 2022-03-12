@@ -16,7 +16,7 @@ const InputDestinationAddressStyles = theme => ({
   },
   info: {
     fontSize: '30px',
-    color: theme.colors.tundoraGrey,
+    color: '#4A4A4A',
     '@media (max-width: 425px)': {
       fontSize: '18px',
     },

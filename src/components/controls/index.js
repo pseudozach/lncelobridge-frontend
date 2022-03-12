@@ -10,7 +10,7 @@ const styles = theme => ({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: p => (p.loading ? theme.colors.tundoraGrey : 'none'),
+    backgroundColor: p => (p.loading ? '#4A4A4A' : 'none'),
   },
   error: {
     flex: 1,
@@ -27,14 +27,14 @@ const styles = theme => ({
   },
   errorCommand: {
     paddingRight: '10px',
-    color: theme.colors.white,
+    color: '#fff',
     fontSize: p => (p.mobile ? '20px' : '25px'),
   },
   nextIcon: {
     paddingRight: '10px',
     height: '30px',
     width: '30px',
-    color: theme.colors.white,
+    color: '#fff',
   },
 });
 

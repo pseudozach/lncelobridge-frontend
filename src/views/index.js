@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from 'react';
 import { Provider } from 'react-redux';
 // , preset, jss
-import { ThemeProvider } from 'react-jss';
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import { ThemeProvider } from 'react-jss';
+import theme2 from '../constants/theme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import { deepmerge } from '@mui/utils';
 import store from '../state';
-import theme from '../constants/theme';
 import 'react-notifications-component/dist/theme.css';
 import { Router, Route, Switch } from 'react-router-dom';
 import * as routes from '../constants/routes';
@@ -17,6 +18,31 @@ const Swap = lazy(() => import('./swap'));
 const Refund = lazy(() => import('./refund'));
 const ReverseSwap = lazy(() => import('./reverse'));
 const ReverseSwapTimelockExpired = lazy(() => import('./reversetimelock'));
+
+// const theme = createTheme(deepmerge({
+//   palette: {
+//     primary: {
+//       main: '#304740'
+//     },
+//     secondary: {
+//       main: '#303b47'
+//     }
+//   }
+// }, theme2));
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#304740'
+    },
+    secondary: {
+      main: '#303b47'
+    }
+  }
+}, theme2);
+
+// Object.assign(newtheme, theme);
+// console.log('extended theme: ', theme, theme2);
 
 // jss.setup(preset);
 const App = () => {

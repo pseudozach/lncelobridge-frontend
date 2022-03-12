@@ -18,7 +18,7 @@ const styles = theme => ({
     height: '400px',
     width: '600px',
     flexDirection: 'column',
-    backgroundColor: theme.colors.white,
+    backgroundColor: '#fff',
     '@media (min-width: 1500px)': {
       width: '800px',
     },
@@ -38,7 +38,7 @@ const styles = theme => ({
     fontSize: '20px',
   },
   retry: {
-    backgroundColor: theme.colors.matisseBlue,
+    backgroundColor: '#7ab251',
     height: '20%',
     width: '100%',
     justifyContent: 'center',

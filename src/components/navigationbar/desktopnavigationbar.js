@@ -98,14 +98,14 @@ const styles = theme => ({
     alignSelf: 'center',
   },
   logoText: {
-    color: theme.colors.white,
+    color: '#fff',
     fontSize: '38px',
     fontfamily: 'SFProText',
     margin: '2px',
     fontWeight: '400',
   },
   subLogoText: {
-    color: theme.colors.white,
+    color: '#fff',
     fontSize: '15px',
     fontWeight: '100',
     textTransform: 'uppercase',
