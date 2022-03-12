@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Provider } from 'react-redux';
-import { ThemeProvider, preset, jss } from 'react-jss';
+// , preset, jss
+import { ThemeProvider } from 'react-jss';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
 import store from '../state';
 import theme from '../constants/theme';
 import 'react-notifications-component/dist/theme.css';
@@ -16,7 +18,7 @@ const Refund = lazy(() => import('./refund'));
 const ReverseSwap = lazy(() => import('./reverse'));
 const ReverseSwapTimelockExpired = lazy(() => import('./reversetimelock'));
 
-jss.setup(preset);
+// jss.setup(preset);
 const App = () => {
   return (
     <Provider store={store}>
