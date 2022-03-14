@@ -119,7 +119,10 @@ const DeskTopNavigationBar = ({classes}) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} 
+                  // onClick={handleCloseNavMenu}
+                  onClick={handleNav}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -129,7 +132,8 @@ const DeskTopNavigationBar = ({classes}) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, cursor: 'pointer', }}
+            onClick={() => navigation.navHome()}
           >
             BOSPHORUS
           </Typography>
