@@ -72,9 +72,10 @@ const Controls = ({
   const loadingStyleSelect = loadingStyle ? loadingStyle : classes.text;
   const loadingTextSelect = loadingText ? loadingText : text;
   console.log('loading: ', loadingText, loading, loadingRender);
+  console.log('text: ', text, errorText);
   let showProgress = false;
-  if(loadingText.includes('Waiting for invoice to be paid...') ||
-    loadingText.includes('Waiting for confirmation...')) {
+  if(loadingText && (loadingText.includes('Waiting for invoice to be paid...') ||
+    loadingText.includes('Waiting for confirmation...'))) {
     showProgress = true;
   }
 

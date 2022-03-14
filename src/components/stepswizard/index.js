@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step2 from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowBack, Close } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -34,7 +34,7 @@ const styles = theme => ({
     minHeight: '500px',
     display: 'flex',
     justifyContent: 'space-between',
-    width: '800px',
+    width: '600px',
     margin: '15px',
     boxShadow: '0px 0px 30px -6px rgba(0,0,0,0.52)',
     backgroundColor: p => (p.dark ? theme.colors.aeroBlue : '#fff'),
@@ -44,7 +44,7 @@ const styles = theme => ({
     //   height: '100vh',
     // },
     '@media (min-width: 1500px)': {
-      width: '800px',
+      width: '600px',
       // height: '600px',
     },
     '@media (max-width: 500px)': {
@@ -155,10 +155,14 @@ class StepsWizard extends PureComponent {
                 <ArrowBack fontSize="inherit" />
               </IconButton>
             ) : (
-              <MdClose
-                className={classes.backButton}
-                onClick={() => onExit()}
-              />
+              // <MdClose
+              //   className={classes.backButton}
+              //   onClick={() => onExit()}
+              // />
+              <IconButton aria-label="delete" size="large"
+                onClick={() => onExit()}>
+                <Close fontSize="inherit" />
+              </IconButton>
             )
           ) : null}
           {/* <ProgressBar progress={this.state.progress} /> */}
