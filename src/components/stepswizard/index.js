@@ -62,6 +62,7 @@ const styles = theme => ({
   content: {
     width: '100%',
     height: '75%',
+    margin: '8px',
   },
   controls: {
     width: '100%',
