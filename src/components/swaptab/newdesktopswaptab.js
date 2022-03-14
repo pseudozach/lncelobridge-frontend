@@ -120,6 +120,7 @@ const DeskTopSwapTabContent = ({
               defaultValue={base}
               onChange={e => updatePair(quote, e.target.value)}
               // displayEmpty
+              className={classes.inputMobile}
               inputProps={{ 'aria-label': 'Without label' }}
               sx={{ m: 1, minWidth: 120 }}
               // sx={{ color: 'white', backgroundColor: '#1a211f', display: 'block' }}
@@ -148,6 +149,7 @@ const DeskTopSwapTabContent = ({
             value={baseAmount}
             onChange={updateQuoteAmount}
             type="number"
+            sx={{ mr: '16px !important' }}
           />
 
         </Paper>
@@ -204,6 +206,7 @@ const DeskTopSwapTabContent = ({
             value={quoteAmount}
             onChange={updateBaseAmount}
             type="number"
+            sx={{ mr: '16px !important' }}
           />
 
         </Paper>
@@ -390,11 +393,11 @@ const styles = theme => ({
     minHeight: '500px',
     display: 'flex',
     justifyContent: 'space-between',
-    width: '800px',
+    width: '600px',
     flexDirection: 'column',
     backgroundColor: '#fff',
     '@media (min-width: 1500px)': {
-      width: '800px',
+      width: '600px',
       // height: '600px',
     },
     '@media (max-width: 500px)': {

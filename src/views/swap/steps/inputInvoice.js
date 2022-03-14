@@ -28,7 +28,7 @@ const InputInvoiceStyles = () => ({
     padding: '50px',
     wordBreak: 'break-all',
     whiteSpace: 'normal',
-    width: '600px',
+    // width: '600px',
     height: '100px',
     color: '#505050',
     fontSize: '18px',
@@ -82,7 +82,7 @@ class StyledInputInvoice extends React.Component {
           </b>
         </p>
         <InputArea
-          width={600}
+          width={500}
           height={150}
           error={error}
           autoFocus={true}

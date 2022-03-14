@@ -16,12 +16,12 @@ const styles = theme => ({
   tab: {
     margin: '15px',
     height: '400px',
-    width: '600px',
+    // width: '600px',
     flexDirection: 'column',
     backgroundColor: '#fff',
-    '@media (min-width: 1500px)': {
-      width: '800px',
-    },
+    // '@media (min-width: 1500px)': {
+    //   width: '800px',
+    // },
   },
   content: {
     flex: 1,
