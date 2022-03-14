@@ -15,15 +15,15 @@ const UploadRefundFileStyles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: '1vh',
-    backgroundColor: theme.colors.aeroBlue,
+    // backgroundColor: '#C2FFF1',
   },
   icon: {
-    color: theme.colors.turquoise,
+    color: '#50E3C2',
   },
   dropZone: {
     height: '300px',
     zIndex: 2000,
-    width: '700px',
+    width: '550px',
     flexDirection: 'column',
     border: `3px dotted ${'#D3D3D3'}`,
     alignItems: 'center',

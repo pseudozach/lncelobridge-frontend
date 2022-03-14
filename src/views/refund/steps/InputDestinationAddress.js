@@ -12,7 +12,8 @@ const InputDestinationAddressStyles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: '1vh',
-    backgroundColor: theme.colors.aeroBlue,
+    // backgroundColor: '#C2FFF1',
+    backgroundColor: '#fff',
   },
   info: {
     fontSize: '30px',
