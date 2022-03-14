@@ -42,6 +42,26 @@ const DeskTopNavigationBar = ({classes}) => {
     setAnchorElNav(null);
   };
 
+  const handleNav = (page) => {
+    console.log('navbar page: ', page.target.textContent);
+    switch (page.target.textContent) {
+      case 'Swap':
+        navigation.navHome()
+        break;
+
+      case 'Refund':
+        navigation.navRefund()
+        break;
+
+      case 'FAQ':
+        navigation.navFaq()
+        break;
+      
+      default:
+        break;
+    }
+  };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -54,7 +74,8 @@ const DeskTopNavigationBar = ({classes}) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex', cursor:'pointer', } }}
+            onClick={() => navigation.navHome()}
           >
           <img
             src={boltz_logo}
@@ -64,7 +85,8 @@ const DeskTopNavigationBar = ({classes}) => {
             alt="logo"
           />
           <span className={classes.logoText}>Bosphorus.Exchange</span>
-          <span className={classes.subLogoText}>{network} beta</span>
+          <span className={classes.subLogoText}>beta</span>
+          {/* {network}  */}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', }}}>
@@ -115,7 +137,7 @@ const DeskTopNavigationBar = ({classes}) => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={handleNav}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

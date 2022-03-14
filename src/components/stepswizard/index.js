@@ -19,7 +19,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 
-const steps = [
+let steps = [
   'Select',
   'Connect',
   'Send',
@@ -37,7 +37,8 @@ const styles = theme => ({
     width: '600px',
     margin: '15px',
     boxShadow: '0px 0px 30px -6px rgba(0,0,0,0.52)',
-    backgroundColor: p => (p.dark ? theme.colors.aeroBlue : '#fff'),
+    // backgroundColor: p => (p.dark ? '#C2FFF1' : '#fff'),
+    backgroundColor: '#fff',
     flexDirection: 'column',
     // '@media (max-width: 425px)': {
     //   width: '100%',
@@ -55,12 +56,13 @@ const styles = theme => ({
   progress: {
     width: '100%',
     height: '10%',
-    backgroundColor: p => (p.dark ? theme.colors.aeroBlue : '#fff'),
+    // backgroundColor: p => (p.dark ? '#C2FFF1' : '#fff'),
+    backgroundColor: '#fff',
     alignItems: 'center',
     marginTop: '16px',
   },
   content: {
-    width: '100%',
+    // width: '100%',
     height: '75%',
     margin: '8px',
   },
@@ -129,7 +131,16 @@ class StepsWizard extends PureComponent {
   render() {
     const { stage } = this.state;
     const { classes, onExit, range } = this.props;
-    // console.log('stepwizard stage, range ', stage, range);
+    console.log('stepwizard stage, range ', stage, range);
+    if(range === 3) {
+      // refund
+      steps = [
+        'Start',
+        'Upload',
+        'Connect',
+        'Refund',
+      ];
+    }
     const children = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
         stage,

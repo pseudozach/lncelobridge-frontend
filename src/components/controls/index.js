@@ -28,6 +28,7 @@ const styles = theme => ({
     borderTop: '1px solid #45665b',
     // backgroundColor: p => (p.loading ? '#4A4A4A' : 'none'),
     backgroundColor: 'white',
+    cursor: 'initial',
   },
   error: {
     flex: 1,
