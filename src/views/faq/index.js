@@ -32,6 +32,7 @@ const styles = theme => ({
     backgroundColor: '#fff',
     minWidth: '820px',
     maxWidth: '920px',
+    marginBottom: '32px',
     flexDirection: 'column',
     alignItems: 'center',
     boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.5)',
@@ -46,6 +47,7 @@ const styles = theme => ({
 });
 
 const twitterLink = 'https://twitter.com/boltzhq';
+const discordLink = 'https://discord.gg/fBN7uNE3ze';
 
 class Faq extends React.Component {
   render() {
@@ -72,8 +74,8 @@ class Faq extends React.Component {
                   identify our users. <br /> <br />
                   Please note that this app is currently in its beta stage and under heavy development.
                   If you experience any issues or
-                  have some feedback feel free to find us on CELO Discord channel.{' '}
-                  {/* <Link to={twitterLink} text={'contact us'} />. */}
+                  have some feedback feel free to contact us on Bosphorus.Exchange Discord <Link to={discordLink} text={'#support'} /> channel.{' '}
+                  {/* . */}
                 </p>
               )}
             />
