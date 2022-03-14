@@ -53,6 +53,7 @@ import {
 } from '../../utils';
 import Logout from '@mui/icons-material/Logout';
 import { Tooltip } from '@mui/material';
+import { AccountBalanceWallet } from '@mui/icons-material';
 
 const DeskTopSwapTabContent = ({
   classes,
@@ -251,20 +252,24 @@ const DeskTopSwapTabContent = ({
             variant="outlined"
             // className={classes.contractButton}
             text={'Connect Wallet'}
-            sx={{ margin: 2, }}
+            sx={{ margin: 2, textTransform: 'initial', }}
             onClick={async () => {
               if(localStorage.getItem('ua')) {
                 localStorage.clear();
                 window.location.reload();
+              } else {
+                let w3 = await connectWallet();
+                console.log('onpress account ', w3);
+                // this.onChange(w3.account, false);
+                // document.getElementById('addressTextfield').value = w3.account;
+                localStorage.setItem('ua', w3.account);
+                window.location.reload();
               }
-              let w3 = await connectWallet();
-              console.log('onpress account ', w3);
-              // this.onChange(w3.account, false);
-              // document.getElementById('addressTextfield').value = w3.account;
-              localStorage.setItem('ua', w3.account);
-              window.location.reload();
             }}
-          >{localStorage.getItem('ua') ? <Tooltip title="Disconnect Wallet"><Logout/></Tooltip> : 'Connect Wallet'}
+            startIcon={!localStorage.getItem('ua') && <AccountBalanceWallet />}
+          >
+            {localStorage.getItem('ua') ? localStorage.getItem('ua').slice(0,4)+'...'+localStorage.getItem('ua').slice(-4) : ''}
+            {localStorage.getItem('ua') ? (<Tooltip title="Disconnect Wallet"><Logout sx={{ml:1}}/></Tooltip>) : 'Connect Wallet'}
           </Button>
           {(error || inputError) && <Alert severity="error" sx={{flex: 1, mx: 1,}} >{errorMessage}</Alert>}
           <Button variant="contained" size="large" endIcon={<NavigateNextIcon />}
