@@ -118,7 +118,7 @@ const styles = theme => ({
     height: '400px',
     width: '600px',
     flexDirection: 'column',
-    backgroundColor: theme.colors.white,
+    backgroundColor: '#fff',
     '@media (min-width: 1500px)': {
       width: '800px',
       height: '600px',
@@ -135,7 +135,7 @@ const styles = theme => ({
     },
   },
   stats: {
-    backgroundColor: theme.colors.white,
+    backgroundColor: '#fff',
     height: '15%',
     width: '100%',
     justifyContent: 'space-around',
@@ -152,7 +152,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
   },
   next: {
-    backgroundColor: theme.colors.matisseBlue,
+    backgroundColor: '#7ab251',
     flex: '1 0 15%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -161,7 +161,7 @@ const styles = theme => ({
     },
   },
   connectButton: {
-    backgroundColor: theme.colors.tundoraGrey,
+    backgroundColor: '#4A4A4A',
     flex: '1 1 25%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -170,22 +170,22 @@ const styles = theme => ({
     },
   },
   nextError: {
-    backgroundColor: theme.colors.tundoraGrey,
+    backgroundColor: '#4A4A4A',
     flex: '1 0 15%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   nextText: {
-    color: theme.colors.white,
+    color: '#fff',
     fontWeight: '300',
   },
   nextIcon: {
-    fontSize: theme.fontSize.sizeXL,
+    fontSize: 26,
     padding: '10px',
     transition: '0.3s',
-    color: theme.colors.white,
+    color: '#fff',
     '&:hover': {
-      color: theme.colors.lightGrey,
+      color: '#D3D3D3',
     },
   },
   text: {
@@ -199,9 +199,9 @@ const styles = theme => ({
     transform: 'rotate(90deg)',
     transition: 'none 200ms ease-out',
     transitionProperty: 'color',
-    color: theme.colors.tundoraGrey,
+    color: '#4A4A4A',
     '&:hover': {
-      color: theme.colors.hoverGrey,
+      color: '#9D9D9D',
     },
   },
 });

@@ -5,6 +5,8 @@ import { isIOS } from 'react-device-detect';
 import View from '../../../components/view';
 import { navigation } from '../../../actions';
 import { createRefundQr } from '../../../utils/refundUtils';
+import { IconButton } from '@mui/material';
+import { DownloadForOffline } from '@mui/icons-material';
 
 const DownloadRefundStyles = () => ({
   wrapper: {
@@ -75,7 +77,7 @@ class StyledDownloadRefund extends React.Component {
       <View className={classes.wrapper}>
         <View className={classes.placer}>
           <p className={classes.info}>
-            <a
+            {/* <a
               target="_blank"
               rel="noopener noreferrer"
               ref={this.ref}
@@ -90,9 +92,25 @@ class StyledDownloadRefund extends React.Component {
               download={'refund.png'}
             >
               Click here
-            </a>{' '}
-            if the download of &lsquo;refund.png&lsquo; <br /> didn&apos;t start
-            automatically.
+            </a>{' '} */}
+            Download refund.png
+            {/* <br /> didn&apos;t start &lsquo;automatically.&lsquo;  */}
+            <IconButton aria-label="delete" size="large"
+              target="_blank"
+              rel="noopener noreferrer"
+              ref={this.ref}
+              href={createRefundQr(
+                currency,
+                privateKey,
+                redeemScript,
+                timeoutBlockHeight,
+                swapInfo,
+                swapResponse
+              )}
+              download={'refund.png'}
+            >
+              <DownloadForOffline fontSize="inherit" />
+            </IconButton>
           </p>
           <p className={classes.address}>
             This refund file can be used to trustlessly <br />

@@ -9,10 +9,11 @@ const LandingPageDesktop = lazy(() => import('./landingPageDesktop'));
 const LandingPageMobile = lazy(() => import('./landingPageMobile'));
 
 const LandingPage = props => (
-  <PlatformSelector
-    mobile={<LandingPageMobile {...props} />}
-    desktop={<LandingPageDesktop {...props} />}
-  />
+  <LandingPageDesktop {...props} />
+  // <PlatformSelector
+  //   mobile={<LandingPageMobile {...props} />}
+  //   desktop={<LandingPageDesktop {...props} />}
+  // />
 );
 
 const mapStateToProps = state => ({

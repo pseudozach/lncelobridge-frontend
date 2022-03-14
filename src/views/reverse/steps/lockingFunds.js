@@ -53,7 +53,7 @@ class LockingFunds extends React.Component {
         <p className={classes.text}>
           We are locking the <b>{getCurrencyName(swapInfo.quote)}</b> that you
           are ought to receive, this is important to keep the swap atomic and
-          trustless. It might take up to 10 minutes.
+          trustless. It should take less than 10 seconds.
           <br />
           <br />
           <Link to={link} text={'Click here'} /> to see the lockup transaction.

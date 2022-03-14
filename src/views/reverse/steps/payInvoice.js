@@ -7,6 +7,9 @@ import QrCode from '../../../components/qrcode';
 import { copyToClipBoard } from '../../../utils';
 import DetectResize from '../../../components/detectresize';
 import Input from '../../../components/textinput';
+import { IconButton, TextField } from '@mui/material';
+import { Box } from '@mui/system';
+import { ContentCopy } from '@mui/icons-material';
 
 const styles = () => ({
   qrwrapper: {
@@ -146,12 +149,32 @@ class PayInvoice extends React.Component {
             cannot receive the lightning coins unless your browser claims the
             onchain funds for you.
           </p>
-          <p className={classes.invoice} id="copy">
+          {/* <p className={classes.invoice} id="copy">
             {swapResponse.invoice}
-          </p>
-          <span className={classes.action} onClick={() => copyToClipBoard()}>
+          </p> */}
+          {/* <span className={classes.action} onClick={() => copyToClipBoard()}>
             Copy
-          </span>
+          </span> */}
+          <Box
+            sx={{display: 'flex', my: '16px',}}
+          >
+            <TextField 
+              fullWidth 
+              // label={swapResponse.invoice} 
+              value={swapResponse.invoice} 
+              id="copy" 
+              disabled
+              sx={{flex:1}}
+            />
+            <IconButton
+              sx={{flex:0}}
+              onClick={() => copyToClipBoard()}
+            >
+              <ContentCopy/>
+            </IconButton>
+          </Box>
+          
+
         </View>)
         }
       </View>

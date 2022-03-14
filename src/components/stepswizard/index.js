@@ -7,32 +7,69 @@ import ProgressBar from '../progressbar';
 import Steps, { Step } from './steps';
 import Controls, { Control } from './controls';
 
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step2 from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import { ArrowBack, Close } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+
+let steps = [
+  'Select',
+  'Connect',
+  'Send',
+  'Receive',
+];
+
 const styles = theme => ({
+  step_label_root: {
+    marginTop: '8px !important',
+  },
   wrapper: {
-    height: '600px',
-    width: '900px',
+    minHeight: '500px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '600px',
+    margin: '15px',
     boxShadow: '0px 0px 30px -6px rgba(0,0,0,0.52)',
-    backgroundColor: p => (p.dark ? theme.colors.aeroBlue : theme.colors.white),
+    // backgroundColor: p => (p.dark ? '#C2FFF1' : '#fff'),
+    backgroundColor: '#fff',
     flexDirection: 'column',
-    '@media (max-width: 425px)': {
+    // '@media (max-width: 425px)': {
+    //   width: '100%',
+    //   height: '100vh',
+    // },
+    '@media (min-width: 1500px)': {
+      width: '600px',
+      // height: '600px',
+    },
+    '@media (max-width: 500px)': {
       width: '100%',
-      height: '100vh',
+      // height: '600px',
     },
   },
   progress: {
     width: '100%',
     height: '10%',
-    backgroundColor: p => (p.dark ? theme.colors.aeroBlue : theme.colors.white),
+    // backgroundColor: p => (p.dark ? '#C2FFF1' : '#fff'),
+    backgroundColor: '#fff',
     alignItems: 'center',
+    marginTop: '16px',
   },
   content: {
-    width: '100%',
+    // width: '100%',
     height: '75%',
+    margin: '8px',
   },
   controls: {
     width: '100%',
     height: '15%',
-    backgroundColor: theme.colors.matisseBlue,
+    backgroundColor: '#7ab251',
     '&:hover': {
       cursor: 'pointer',
     },
@@ -94,7 +131,16 @@ class StepsWizard extends PureComponent {
   render() {
     const { stage } = this.state;
     const { classes, onExit, range } = this.props;
-
+    console.log('stepwizard stage, range ', stage, range);
+    if(range === 3) {
+      // refund
+      steps = [
+        'Start',
+        'Upload',
+        'Connect',
+        'Refund',
+      ];
+    }
     const children = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
         stage,
@@ -106,28 +152,48 @@ class StepsWizard extends PureComponent {
     });
 
     return (
-      <View className={classes.wrapper}>
+      // <View className={classes.wrapper}>
+      <Card 
+        className={classes.wrapper}>
         <View className={classes.progress}>
           {onExit ? (
             stage !== range ? (
-              <MdArrowBack
-                className={classes.backButton}
-                onClick={() => (stage !== 1 ? this.prevStage() : onExit())}
-              />
+              // <MdArrowBack
+              //   className={classes.backButton}
+              //   onClick={() => (stage !== 1 ? this.prevStage() : onExit())}
+              // />
+              <IconButton aria-label="delete" size="large"
+                onClick={() => (stage !== 1 ? this.prevStage() : onExit())}>
+                <ArrowBack fontSize="inherit" />
+              </IconButton>
             ) : (
-              <MdClose
-                className={classes.backButton}
-                onClick={() => onExit()}
-              />
+              // <MdClose
+              //   className={classes.backButton}
+              //   onClick={() => onExit()}
+              // />
+              <IconButton aria-label="delete" size="large"
+                onClick={() => onExit()}>
+                <Close fontSize="inherit" />
+              </IconButton>
             )
           ) : null}
-          <ProgressBar progress={this.state.progress} />
+          {/* <ProgressBar progress={this.state.progress} /> */}
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={stage} alternativeLabel>
+              {steps.map((label) => (
+                <Step2 key={label}>
+                  <StepLabel classes={{ label: classes.step_label_root }}>{label}</StepLabel>
+                </Step2>
+              ))}
+            </Stepper>
+          </Box>
         </View>
         {this.props.id ? (
           <View className={classes.id}>ID: {this.props.id}</View>
         ) : null}
         {children}
-      </View>
+      </Card>
+      // </View>
     );
   }
 }

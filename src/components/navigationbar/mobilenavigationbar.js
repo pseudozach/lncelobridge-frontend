@@ -122,13 +122,13 @@ const styles = theme => ({
     height: '50px',
     width: '50px',
     cursor: 'pointer',
-    color: theme.colors.white,
+    color: '#fff',
     '&:hover': {
-      color: theme.colors.hoverGrey,
+      color: '#9D9D9D',
     },
   },
   logoText: {
-    color: theme.colors.white,
+    color: '#fff',
     fontSize: '38px',
     margin: '2px',
     fontWeight: '400',

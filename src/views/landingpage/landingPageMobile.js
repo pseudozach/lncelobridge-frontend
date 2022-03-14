@@ -90,7 +90,7 @@ const styles = theme => ({
   introText: {
     fontSize: '25px',
     textAlign: 'center',
-    color: theme.colors.white,
+    color: '#fff',
   },
 });
 

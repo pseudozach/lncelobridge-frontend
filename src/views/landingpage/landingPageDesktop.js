@@ -14,6 +14,7 @@ import NavigationBar from '../../components/navigationbar';
 import { bitcoinNetwork, litecoinNetwork } from '../../constants';
 import { generateKeys, randomBytes, navigation } from '../../actions';
 import { getHexString } from '../../utils';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const boltz_logo = require('../../asset/icons/loading.gif');
 
@@ -59,7 +60,8 @@ const LandingPageDeskTopContent = ({
         </View> */}
         {loading ? (
           <View className={classes.loading}>
-            <img alt="logo" src={boltz_logo} className={classes.loadingLogo} style={{height: 100, width: 100,}}/>
+            {/* <img alt="logo" src={boltz_logo} className={classes.loadingLogo} style={{height: 100, width: 100,}}/> */}
+            <CircularProgress />
             <p className={classes.loadingText}>Loading...</p>
           </View>
         ) : (
@@ -115,16 +117,16 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   title: {
-    fontSize: theme.fontSize.sizeXXL,
-    color: theme.colors.white,
+    fontSize: 32,
+    color: '#fff',
     '@media (min-width: 1500px)': {
-      fontSize: theme.fontSize.sizeXXXL,
+      fontSize: 42,
     },
   },
   description: {
-    fontSize: theme.fontSize.sizeXXL,
+    fontSize: 32,
     '@media (min-width: 1500px)': {
-      fontSize: theme.fontSize.sizeXXXL,
+      fontSize: 42,
     },
   },
   loading: {
@@ -135,7 +137,7 @@ const styles = theme => ({
     alignContent: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: theme.colors.white,
+    backgroundColor: '#fff',
     '@media (min-width: 1500px)': {
       width: '800px',
       height: '600px',

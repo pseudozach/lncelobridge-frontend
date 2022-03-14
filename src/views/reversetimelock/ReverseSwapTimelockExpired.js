@@ -16,12 +16,12 @@ const styles = theme => ({
   tab: {
     margin: '15px',
     height: '400px',
-    width: '600px',
+    // width: '600px',
     flexDirection: 'column',
-    backgroundColor: theme.colors.white,
-    '@media (min-width: 1500px)': {
-      width: '800px',
-    },
+    backgroundColor: '#fff',
+    // '@media (min-width: 1500px)': {
+    //   width: '800px',
+    // },
   },
   content: {
     flex: 1,
@@ -38,7 +38,7 @@ const styles = theme => ({
     fontSize: '20px',
   },
   retry: {
-    backgroundColor: theme.colors.matisseBlue,
+    backgroundColor: '#7ab251',
     height: '20%',
     width: '100%',
     justifyContent: 'center',

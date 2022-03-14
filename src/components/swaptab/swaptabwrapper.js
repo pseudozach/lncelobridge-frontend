@@ -195,6 +195,8 @@ class SwapTabWrapper extends React.Component {
   };
 
   parseBoltSuffix = (entry, isBase) => {
+    // console.log('parseBoltSuffix ', entry, isBase);
+    if(!entry.lastIndexOf) return;
     const index = entry.lastIndexOf('⚡');
     const isLightning = index !== -1;
 
@@ -212,7 +214,7 @@ class SwapTabWrapper extends React.Component {
     )}/${this.parseBoltSuffix(this.state.quote, false)}`;
   };
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     if (localStorage.getItem('quote')) {
       this.setState({
         base: localStorage.getItem('base'),
@@ -326,7 +328,7 @@ class SwapTabWrapper extends React.Component {
 
       return lockup + claim;
     } else {
-      return minerFees[this.baseAsset.symbol].normal;
+      return minerFees[this.baseAsset.symbol].normal || 0;
     }
   };
 
@@ -340,12 +342,14 @@ class SwapTabWrapper extends React.Component {
     const percentageFee = feePercentage.times(baseAmount);
 
     let minerFee = new BigNumber(this.calculateMinerFee()).dividedBy(decimals);
-
+    // console.log('calculateFee ', baseAmount.toString(), rate.toString(), feePercentage.toString(), percentageFee.toString(), minerFee.toString());
     if (this.baseAsset.isLightning) {
       minerFee = minerFee.times(new BigNumber(1).dividedBy(rate));
     }
 
-    if (isNaN(percentageFee.toNumber()) || percentageFee.toNumber() < 1) {
+    // we should still show fees even if they're less than 1 cUSD
+    // || percentageFee.toNumber() < 1
+    if (isNaN(percentageFee.toNumber())) {
       return new BigNumber(0);
     }
 
@@ -365,6 +369,7 @@ class SwapTabWrapper extends React.Component {
   };
 
   updatePair = (quote, base) => {
+    // console.log('updatePair ', quote, base);
     this.setState({ base, quote, error: false, errorMessage: '' });
   };
 
@@ -375,14 +380,25 @@ class SwapTabWrapper extends React.Component {
   };
 
   updateBaseAmount = quoteAmount => {
+    // console.log('enter updateBaseAmount baseAmount: ', quoteAmount, typeof quoteAmount, quoteAmount.isBigNumber);
+    if(quoteAmount.c) {
+      quoteAmount = quoteAmount.toString();
+    } else if (!quoteAmount.target || !quoteAmount.target.value){
+      quoteAmount = '0';
+    } else {
+      quoteAmount = quoteAmount.target.value.toString()
+    }
+    // console.log('updateBaseAmount.383 quoteAmount: ', quoteAmount, );
     const amount = new BigNumber(quoteAmount);
     const rate = new BigNumber(this.state.rate.rate);
 
     const newBase = amount.dividedBy(rate);
     const fee = this.calculateFee(newBase, rate);
+    // console.log('updateBaseAmount fee ', fee.toString());
 
     const newBaseWithFee = fee.plus(newBase);
     const inputError = !this.checkBaseAmount(newBaseWithFee);
+    // console.log('inputError: ', inputError, );
 
     this.setState({
       quoteAmount: amount,
@@ -394,29 +410,40 @@ class SwapTabWrapper extends React.Component {
   };
 
   updateQuoteAmount = baseAmount => {
-    console.log('updateQuoteAmount ', baseAmount);
     if (!this.state.rate) return;
 
-    const amount = new BigNumber(baseAmount.toString());
+    // console.log('enter updatequoteamount baseAmount: ', baseAmount, typeof baseAmount, baseAmount.isBigNumber);
+    if(baseAmount.c) {
+      baseAmount = baseAmount.toString();
+    } else if (!baseAmount.target || !baseAmount.target.value){
+      baseAmount = '0';
+    } else {
+      baseAmount = baseAmount.target.value.toString();
+    }
+    // console.log('updateQuoteAmount ', baseAmount, this.state.rate);
+    
+
+    // const amount = new BigNumber(baseAmount.toString());
+    const amount = new BigNumber(baseAmount);
     const rate = new BigNumber(this.state.rate.rate);
     // const inverserate = new BigNumber(1/this.state.rate.rate);
     // inverserate
 
     let fee = this.calculateFee(amount, rate);
-    console.log('swaptabwrapper.404: ', amount, rate, fee);
+    // console.log('swaptabwrapper.404: ', amount.toString(), rate.toString(), fee.toString());
     const quote = amount
       .times(rate)
       .minus(fee.times(rate))
       .toFixed(8);
 
     let newQuote = new BigNumber(quote);
-    console.log('swaptabwrapper.411: ', quote);
+    // console.log('swaptabwrapper.411: ', quote);
     if (newQuote.isLessThanOrEqualTo(0)) {
       newQuote = new BigNumber('0');
     }
 
     const inputError = !this.checkBaseAmount(amount);
-    console.log('swaptabwrapper.417 calculated amount: ', inputError);
+    // console.log('swaptabwrapper.417 calculated amount: inputError', inputError);
     this.setState({
       quoteAmount: newQuote,
       baseAmount: amount,
