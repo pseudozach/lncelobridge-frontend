@@ -51,8 +51,8 @@ export const connectWallet = async () => {
             },
           },
         },
-        metamask: {},
-        liquality: {},
+        // metamask: {},
+        // liquality: {},
         // torus: {
         //   package: Torus,
         // },
@@ -66,7 +66,7 @@ export const connectWallet = async () => {
         //   },
         // },
       },
-      // supportedChains: [33], // enable regtest
+      supportedChains: [42220], // enable regtest
     });
 
     // let clearcache = await web3Modal.clearCachedProvider();
@@ -74,8 +74,8 @@ export const connectWallet = async () => {
 
     console.log("web3modal defined ", web3Modal);
     const provider = await web3Modal.connect();
-    // provider
-    console.log(`provider `, );
+    // 
+    console.log(`provider `, provider);
     let account;
     const web3 = new Web3(provider);
     if (provider.wc) {
