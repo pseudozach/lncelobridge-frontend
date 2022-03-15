@@ -49,6 +49,8 @@ export const connectWallet = async () => {
               // 44787: 'https://alfajores-forno.celo-testnet.org', // use CELO public nodes to connect
               // 33: 'https://4444-kumquat-horse-natda5vs.ws-us18.gitpod.io', // gitpod node for testing
             },
+            chainId: 42220,
+            network: 'celo',
           },
         },
         // metamask: {},
@@ -66,7 +68,7 @@ export const connectWallet = async () => {
         //   },
         // },
       },
-      supportedChains: [42220], // enable regtest
+      // supportedChains: [42220], // enable regtest
     });
 
     // let clearcache = await web3Modal.clearCachedProvider();
@@ -75,7 +77,7 @@ export const connectWallet = async () => {
     console.log("web3modal defined ", web3Modal);
     const provider = await web3Modal.connect();
     // 
-    console.log(`provider `, provider);
+    console.log(`provider `, provider, provider.accounts);
     let account;
     const web3 = new Web3(provider);
     if (provider.wc) {
