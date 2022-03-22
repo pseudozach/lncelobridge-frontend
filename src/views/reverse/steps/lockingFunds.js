@@ -16,7 +16,7 @@ const styles = () => ({
   },
   text: {
     fontSize: '30px',
-    paddingLeft: '20px',
+    // paddingLeft: '20px',
     paddingRight: '20px',
     '@media (max-width: 425px)': {
       fontSize: '16px',
@@ -26,8 +26,12 @@ const styles = () => ({
     paddingLeft: '10px',
   },
   contractButton: {
+    width: '100%',
+    display: 'block',
+    textAlign: 'center',
     background: 'black',
-    margin: '4px',
+    // margin: '4px',
+    marginTop: '20px',
     borderRadius: '5px',
   },  
 });
@@ -61,10 +65,11 @@ class LockingFunds extends React.Component {
           <br />
           {(swapInfo.quote === 'CELO' || swapInfo.quote === 'CUSD' || swapInfo.quote === 'CEUR') && 
           (swapStatus !== 'Could not send onchain coins' && swapStatus !== 'Waiting for confirmation...') ? (
+            <>
             <p className={classes.text}>
               Lockup is confirmed. 
               <br/>
-              Tap here to trigger Claim Contract Call:{' '}
+              {/* Tap here to trigger Claim Contract Call:{' '} */}
               {/* <button
                 onClick={() => claimFunds(swapInfo, swapResponse)}
                 // target={'_blank'}
@@ -72,20 +77,21 @@ class LockingFunds extends React.Component {
               >
                 Claim
               </button> */}
-              <Button
-                className={classes.contractButton}
-                text={'Claim'}
-                // error={error || inputError}
-                // onPress={() => claimFunds(swapInfo, swapResponse)}
-                // onClick={() =>
-                onPress={() =>
-                  swapInfo.quote === 'CELO'
-                    ? claimFunds(swapInfo, swapResponse)
-                    : claimTokens(swapInfo, swapResponse)
-                }
-                // errorText={errorMessage}
-              />
             </p>
+            <Button
+              className={classes.contractButton}
+              text={'Claim'}
+              // error={error || inputError}
+              // onPress={() => claimFunds(swapInfo, swapResponse)}
+              // onClick={() =>
+              onPress={() =>
+                swapInfo.quote === 'CELO'
+                  ? claimFunds(swapInfo, swapResponse)
+                  : claimTokens(swapInfo, swapResponse)
+              }
+              // errorText={errorMessage}
+          />
+          </>
           ) : null}
           {/* If you are #reckless and impatient you can accept the 0-conf
           transaction:
